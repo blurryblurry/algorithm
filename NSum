@@ -1,0 +1,25 @@
+
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+
+int main()
+{	
+	int a, sum;
+	scanf_s("%d", &sum);
+	for (int i = 1; i <= 100; i++)
+	{
+		sum -= i;
+		if (sum == 0)
+		{
+			printf("%d", i);
+			break;
+		}
+	}
+	return 0;
+
+}
