@@ -1,0 +1,39 @@
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main()
+{	
+	int a,b,c,space;
+	cin>>a>>b>>c;
+	if (a > b)
+	{
+		space = b;
+		b = a;
+		a = space;
+	}
+	if (a > c)
+	{
+		space = c;
+		c = a;
+		a = space;
+
+	}
+	if (b > c)
+	{
+		space = b;
+		b = c;
+		c = space;
+	
+
+	}
+
+	if (a + b > c) cout << "yes";
+	else cout << "no";
+
+	return 0;
+	
+
+}
