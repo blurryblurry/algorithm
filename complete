@@ -1,0 +1,34 @@
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+
+int main()
+{	
+	int a, sum=0;
+	scanf_s("%d", &a);
+	for (int i = 1; i <a; i++)
+	{
+		if (a % i == 0)
+		{
+			sum += i;
+
+		}
+		
+		
+		
+
+	}
+	if (a == sum)
+	{
+		printf("yes");
+	}
+	else
+		printf("no");
+
+	return 0;
+
+}
