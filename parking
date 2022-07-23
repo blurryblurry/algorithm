@@ -1,0 +1,31 @@
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+int main()
+{
+	int n, a[20], min = 100, max = 0, sum = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+
+
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (min > a[i]) min = a[i];
+		if (max < a[i]) max = a[i];
+		
+		
+
+	}
+	sum = (max - min) * 2;
+	printf("%d", sum);
+
+	return 0;
+}
