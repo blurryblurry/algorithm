@@ -1,0 +1,25 @@
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+int main()
+{
+	int a[10], sum = 0;
+	for (int i = 0;i <= 9;i++)
+	{
+		cin >> a[i];
+
+	}
+	for (int i = 0; i <= 9; i++)
+	{
+		sum += a[i];
+
+	}
+	int* q = max_element(a, a + 10);
+	int* r = min_element(a, a + 10);
+	printf("%d %d %d", sum, *q, *r);
+}
