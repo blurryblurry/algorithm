@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+int main()
+{
+	double length, sum = 0;
+	int n;
+	cin >> length;
+	for (int i = 1; ; i++)
+	{
+		cout.precision(10);
+		sum += 1 /(double) (i+1);
+		if (sum >= length)
+		{
+			printf("%d card(s)", i);
+			return 0;
+		}
+	}
+
+	
+
+}
