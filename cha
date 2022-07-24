@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+
+int main()
+{
+	int a, b, c;
+	cin >> a >> b;
+	printf("%d %d", a, b);
+	while (1)
+	{
+		c = a - b;
+		a = b;
+		b = c;
+		if (c < 0) break;
+		else printf("%d", c);
+	}
+	return 0;
+	
+
+}
