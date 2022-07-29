@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main()
+{
+	int n, sum = 0;
+	cin >> n;
+
+	for (int i = 1; i <= n; i++)
+	{
+		for (int c = 1;c <= i;c++)
+		{
+			sum += c;
+		}
+	}
+	printf("%d", sum);
+	return 0;
+}
