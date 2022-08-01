@@ -1,0 +1,19 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main()
+{
+	int a[6],chess[6]={1,1,2,2,2,8};
+	
+	for (int i = 0; i < 6;i++)
+	{
+		cin >> a[i];
+		printf("%d ", chess[i] - a[i]);
+
+	}
+	return 0;
+}
