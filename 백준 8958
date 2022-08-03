@@ -1,0 +1,32 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main()
+{
+	string s;
+	int n;
+	int sum1 = 0, sum2 = 0;
+	cin >> n;
+	for (int i = 0; i < n;i++)
+	{
+		cin >> s;
+		for (char& v : s)
+		{
+			if (v == 'O')
+			{
+				sum1++;
+				sum2 += sum1;
+			}
+			else sum1 = 0;
+		}
+		printf("%d", sum2);
+		sum1 = 0;
+		sum2 = 0;
+	}
+
+}
