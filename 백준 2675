@@ -1,0 +1,34 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <algorithm>
+#include <string>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main()
+{
+	int n,d;
+	string s;
+
+	cin >> n;
+	for (int i = 0; i<n ;i++)  
+	{
+		cin >> d;
+		cin >> s;
+		for (int c = 0;c < s.length();c++)
+		{
+			for (int k = 0; k < d;k++)
+			{
+				cout << s[c];
+			}
+			
+		}
+	}
+	return 0;
+	
+	
+	
+}
