@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+using namespace std;
+#define _CRT_SECURE_NO_WARNINGS
+
+
+int main()
+{
+	string s;
+	bool tf=true;
+	getline(cin, s);
+	int count =0;
+	for (int i = 0;i < s.length();i++)
+	{
+		if (s[i] == ' ') tf=true ;
+		else if(tf)
+		{
+			tf = false;
+			count++;
+		}
+	}
+	printf("%d", count);
+}
