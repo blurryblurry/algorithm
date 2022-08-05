@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+
+using namespace std;
+#define _CRT_SECURE_NO_WARNINGS
+
+
+int pac(int k)
+{
+	int mul=1;
+	if (k == 0) mul=1;
+	else
+	{
+		mul = k * pac(k - 1);
+		
+	}
+	return mul;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	printf("%d", pac(n));
+
+}
