@@ -1,0 +1,22 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+
+using namespace std;
+#define _CRT_SECURE_NO_WARNINGS
+
+
+int piv(int n)
+{
+	int sum;
+	if (n == 0) sum = 0;
+	else if (n == 1) sum = 1;
+	else sum = piv(n-1)+piv(n-2);
+	return sum;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	printf("%d", piv(n));
+}
