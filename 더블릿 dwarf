@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int arr[9] = {}, sum = 0, a,b;
+	for(int i=0;i<9;i++)
+	{
+		scanf_s("%d",&arr[i]);
+		sum += arr[i];
+	}
+	sum = sum - 100;
+	for (int i = 0;i < 9;i++)
+	{
+		for (int k = 0;k < 9;k++)
+		{
+			if (i!=k && arr[i] + arr[k] == sum)
+			{
+				a = i;
+				b = k;
+				break;
+			}
+		}
+	}
+	for (int i = 0; i < 9; i++)
+	{
+		if (i != a && i != b)
+		{
+			printf("%d \n", arr[i]);
+		}
+	}
+	return 0;
+
+		
+
+}
