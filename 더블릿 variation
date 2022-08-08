@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n ,sum=0;
+	double avg, var = 0;
+	int arr[100] = {};
+	cin >> n;
+	for (int i = 0;i < n;i++)
+	{
+		scanf_s("%d", &arr[i]);
+		sum += arr[i];
+	}
+	avg = (double)sum / (double)n;
+
+	for (int i = 0; i < n; i++)
+	{
+		var += (arr[i] - avg) * (arr[i] - avg);
+	}
+	var = var / double(n);
+	printf("%.2f", var);
+
+}
