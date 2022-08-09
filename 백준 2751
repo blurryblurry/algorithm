@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+
+
+int main()
+{
+	int num, apk;
+	vector<int> vect;
+	cin >> num;
+	for (int i = 0; i < num; i++)
+	{
+		cin >> apk;
+		vect.push_back(apk);
+	}
+	sort(vect.begin(), vect.end());
+	for (int i = 0; i < num; i++)
+	{
+		cout << vect[i] << '\n';
+	}
+
+
+}
