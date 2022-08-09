@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n,sum=0,fsum=0;
+	int arr[50] = {};
+	cin >> n;
+	for (int i=0;i < n;i++)
+	{
+		scanf_s("%d", &arr[i]);
+		sum += arr[i];
+	}
+	sum= sum / n;
+	for (int i = 0;i < n;i++)
+	{
+		if (arr[i] - sum > 0)
+		{
+			fsum += arr[i] - sum;
+		}
+
+	}
+	printf("The minimum number of moves is %d.", fsum);
+
+}
