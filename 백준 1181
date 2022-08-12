@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+bool cmp(string v1, string v2) {
+	if (v1.length() == v2.length())
+		return v1 < v2;
+	else return v1.length() < v2.length();
+}
+int main() {
+	int n;
+	cin >> n;
+	vector<string> v;
+	string word;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> word;
+		if (find(v.begin(), v.end(), word) == v.end())
+			v.push_back(word);
+	}
+	sort(v.begin(), v.end(), cmp);
+	for (int i = 0; i < v.size(); i++)
+	{
+		cout << v[i]<<'\n';
+	}
+	return 0;
+}
