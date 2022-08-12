@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+vector <int>arr;
+
+
+int avg(int n)
+{
+	int sum = 0;
+	for (int i = 1; i <= n;i++)
+		sum += i;
+
+	return sum;
+}
+
+
+int main()
+{
+	int N,value,center_value,sum=0,Mm,most_val;
+	int number[8001] = {};
+	int most = -9999;
+	bool not_first = false;
+	cin >> N;
+	for (int i = 0;i < N;i++)
+	{
+		cin >> value;
+		arr.push_back(value);
+		sum += value;
+		number[value + 4000]++;
+		
+	}
+	for (int i = 0; i < 8001;i++)
+	{
+		if (number[i] == 0)
+			continue;
+		if (number[i] == most)
+		{
+			if (not_first)
+			{
+				most_val = i - 4000;
+				not_first = false;
+			}
+		}
+
+		if (number[i] > most)
+		{
+			most = number[i];
+			most_val = i - 4000;
+			not_first = true;
+		}
+	}
+
+	
+	sum =round( double(sum) / N);
+	sort(arr.begin(), arr.end());
+	center_value = arr[N / 2];
+	Mm = arr.back() - arr.front();
+	
+	
+	
+	cout <<sum<<'\n' << center_value << '\n' << most_val << '\n' << Mm;
+
+	
+}
