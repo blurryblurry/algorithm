@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int n, s,a,space;
+	vector<int> v = {};
+	cin >> n>>s;
+	for (int i = 0;i < n;i++) {
+		cin >> a;
+		v.push_back(a);
+	}
+	for (int i = 0; i < s;i++) {
+		for (int j = 0;j < n-1;j++) {
+			if (v[j] > v[j + 1])
+			{
+				space = v[j];
+				v[j] = v[j + 1];
+				v[j + 1] = space;
+			}
+		}
+	}
+	for (int i = 0;i < n;i++) {
+		cout << v[i]<<" ";
+
+	}
+	return 0;
+
+
+}
