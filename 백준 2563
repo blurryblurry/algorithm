@@ -1,0 +1,32 @@
+
+#include <iostream>
+
+using namespace std;
+
+string s[5];
+
+int main()
+{
+    int a[100][100]={0,};
+    int b,x,y;
+    int area=0;
+    
+    cin>>b;
+    
+    while(b--){
+        cin>>y>>x;
+        for(int i=x;i<x+10;i++){
+            for(int j=y;j<y+10;j++){
+                if(!a[i][j]){
+                a[i][j]=1;
+                area++;
+                }
+            }
+        }
+    }
+    cout<<area;
+    
+    
+    
+    return 0;
+}
