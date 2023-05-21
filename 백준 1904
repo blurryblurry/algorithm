@@ -1,0 +1,23 @@
+#include <iostream>
+
+
+#define mod 15746
+using namespace std;
+
+
+
+
+int main()
+{
+   int N;
+   cin>>N;
+   
+   int dp[N+1];
+   dp[1]=1%mod;
+   dp[2] = 2% mod;
+   for(int i=3;i<=N;i++){
+       dp[i]=(dp[i-2]+dp[i-1])%mod;
+   }
+   cout<<dp[N]<<"\n";
+    return 0;
+}
