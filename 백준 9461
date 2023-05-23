@@ -1,0 +1,30 @@
+
+#include <iostream>
+
+using namespace std;
+
+
+long long dp[101]={0,1,1,};
+
+long long w(int N){
+    if(N<3) return dp[N];
+    else if(dp[N]==0)  dp[N]=w(N-3)+w(N-2);
+    return dp[N];
+}
+
+int main()
+{
+    int N,T;
+    cin>>T;
+    
+    for(int i=0;i<T;i++){
+        cin>>N;
+        cout<<w(N)<<"\n";
+    }
+    
+    
+    return 0;
+}
+
+
+
