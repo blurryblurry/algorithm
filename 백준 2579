@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int dp[301]={0,};
+int stair[301]={0,};
+
+int dmax(int a){
+  int result;
+  dp[1]=stair[1];
+  dp[2]=stair[1]+stair[2];
+  dp[3]=max(stair[1],stair[2])+stair[3];
+  if (dp[a]!=0) return dp[a];
+  result=stair[a]+dmax(a-2);
+  dp[a]=max(result,stair[a]+stair[a-1]+dmax(a-3));
+  return dp[a];
+}
+
+int main(){
+  int T;
+  
+  cin>>T;
+  for(int i=1;i<=T;i++){
+    cin>>stair[i];
+  }
+  
+  
+  cout<<dmax(T);
+}
