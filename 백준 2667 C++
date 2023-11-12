@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+
+int arr[25][25];
+int N,cnt;
+int x[4]={-1,0,+1,0};
+int y[4]={0,+1,0,-1};
+vector<int> total;
+
+
+void dfs(int a,int b){
+
+    for(int i=0;i<4;i++){
+        int dx=a+x[i];
+        int dy=b+y[i];
+        if(dx<0||dx>=N||dy<0||dy>=N) continue;
+        if(arr[dx][dy]==1){
+            arr[dx][dy]=2;
+            cnt++;
+            dfs(dx,dy);
+        }
+    }
+
+}
+
+int main()
+{
+    int man=0;
+    cin>>N;
+    
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            scanf("%1d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            if(arr[i][j]==1){
+                cnt=1;
+                arr[i][j]=2;
+                dfs(i,j);
+                total.push_back(cnt);
+            }
+        }
+    }
+
+    sort(total.begin(),total.end());
+
+    cout<<total.size()<<"\n";
+
+    for(int i=0;i<total.size();i++){
+        cout<<total[i]<<"\n";
+    }
+
+    return 0;
+}
