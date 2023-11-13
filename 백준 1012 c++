@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string.h>
+using namespace std;
+
+int arr[50][50];
+int N,M,K;
+int x[4]={-1,0,1,0};
+int y[4]={0,1,0,-1};
+
+
+
+void dfs(int m,int n){
+    
+    for(int i=0;i<4;i++){
+        int dx=m+x[i];
+        int dy=n+y[i];
+        if(dx<0||dx>=M||dy<0||dy>=N) continue;
+        if(arr[dx][dy]==1) {
+            arr[dx][dy]=2;
+            dfs(dx,dy);
+        }
+    }
+}
+
+int main()
+{
+    int T;
+    cin>>T;
+    
+    while(T--){
+        int ans=0;
+        cin>>M>>N>>K;
+        for(int i=0;i<K;i++){
+            int a,b;
+            cin>>a>>b;
+            arr[a][b]=1;
+            
+            
+        }
+        for(int i=0;i<M;i++){
+            for(int j=0;j<N;j++){
+                if(arr[i][j]==1){
+                    arr[i][j]=2;
+                    dfs(i,j);
+                    ans++;
+                }
+            }
+        }
+        memset(arr,0,sizeof(arr));
+        cout<<ans<<"\n";
+        
+    }
+    
+    
+    return 0;
+}
