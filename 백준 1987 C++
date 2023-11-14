@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string.h>
+#include <algorithm>
+using namespace std;
+
+char arr[20][20];
+bool visit[26];
+int x[4]={-1,0,1,0};
+int y[4]={0,1,0,-1};
+int R,C,answer;
+
+void dfs(int a,int b,int cnt){
+  answer=max(cnt,answer);
+  for(int i=0;i<4;i++){
+    int dx = a + x[i];
+    int dy = b + y[i];
+    if(dx<0||dx>=R||dy<0||dy>=C) continue;
+    if(visit[arr[dx][dy]-'A']==false){
+      visit[arr[dx][dy]-'A']=true;
+      dfs(dx,dy,cnt+1);
+      visit[arr[dx][dy]-'A']=false;
+    }
+  }
+}
+
+int main()
+{
+  
+  cin>>R>>C;
+  for(int i=0;i<R;i++){
+    for(int j=0;j<C;j++){
+      cin>>arr[i][j];
+    }
+    
+  }
+
+  visit[arr[0][0]-'A']=true;
+  dfs(0,0,1);
+  cout<<answer<<"\n";
+  return 0;
+}
+
+  
