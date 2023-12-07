@@ -1,0 +1,59 @@
+#include <iostream>
+#include <queue>
+#define MAX 100001
+using namespace std;
+
+
+bool visit[MAX];
+int N,K;
+
+
+
+void bfs(int a){
+  queue <pair<int, int>> q;
+  q.push(make_pair(a, 0));
+  while(!q.empty()){
+    int x = q.front().first;
+    int y = q.front().second;
+
+    q.pop();
+    if(x==K) {
+      cout<<y;
+      break;
+    }
+
+    if(x-1>=0&&x-1<100001){
+      if(!visit[x-1]){
+        visit[x-1]=true;
+        q.push(make_pair(x-1,y+1));
+      }
+    }
+    if(x+1>=0&&x+1<100001){
+      if(!visit[x+1]){
+        visit[x+1]=true;
+        q.push(make_pair(x+1,y+1));
+      }
+    }
+    if(2*x>=0&&2*x<100001){
+      if(!visit[2*x]){
+        visit[2*x]=true;
+        q.push(make_pair(2*x,y+1));
+      }
+    }
+
+
+  }
+
+}
+
+int main()
+{
+  ios::sync_with_stdio(false);
+  cin.tie(NULL), cout.tie(nullptr);
+
+  cin>>N>>K;
+  visit[N]=true;
+  bfs(N);
+  return 0;
+}
+
