@@ -1,0 +1,106 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <string.h>
+#define MAX 8
+using namespace std;
+
+int arr[MAX][MAX],tmp[MAX][MAX];
+bool visit[MAX][MAX];
+int N,M,cnt,ans;
+int dx[4]={-1,0,1,0};
+int dy[4]={0,1,0,-1};
+
+
+void copy(int arr1[MAX][MAX],int arr2[MAX][MAX]){
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      arr1[i][j]=arr2[i][j];
+    }
+  }
+}
+
+void bfs(){
+  int aft[8][8];
+  copy(aft,tmp);
+  queue< pair<int,int>> q;
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      if(aft[i][j] == 2){
+        q.push(make_pair(i,j));
+      }
+    }
+  } 
+  while(!q.empty()){
+    int m = q.front().first;
+    int n = q.front().second;
+    q.pop();
+    for(int i=0;i<4;i++){
+      int xx = m+dx[i];
+      int yy = n+dy[i];
+      if(xx<0 || xx>=N || yy<0 || yy>=M ) continue;
+      if(aft[xx][yy]==0 ){
+        aft[xx][yy] = 2;
+        q.push({xx,yy});
+      
+      }
+    }
+  }
+  int cnt=0;
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      if(aft[i][j]==0){
+        cnt++;
+      }
+    }
+  }
+  ans =max(cnt,ans);
+}
+void comb(int k){
+  if(k==3) {
+    bfs();
+    return;
+  }
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      if(tmp[i][j]==0){
+        tmp[i][j]=1;
+        comb(k+1);
+        tmp[i][j]=0;
+      
+      }
+    }
+  }
+     
+}
+
+int main(){
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+
+  cin>>N>>M;
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      cin>>arr[i][j];
+
+    }
+  }
+
+  for(int i=0;i<N;i++){
+    for(int j=0;j<M;j++){
+      if(arr[i][j]==0){
+        memset(visit,0,sizeof(visit));
+        copy(tmp,arr);
+        tmp[i][j]=1;
+        comb(1);
+        tmp[i][j]=0;
+      }   
+
+    }
+  }
+
+  cout<<ans;
+  
+  return 0;
+}
