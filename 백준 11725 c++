@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#define MAX 100001
+using namespace std;
+
+vector <int> graph [MAX];
+bool visit[MAX];
+int ans[MAX];
+int N;
+queue <int> q;
+
+void bfs(){
+  while(!q.empty()){
+    int parent = q.front();
+    q.pop();
+    visit[parent]=1;
+    for(int i=0;i<graph[parent].size();i++){
+      int child = graph[parent][i];
+      if(visit[child]==0){
+        visit[child]=1;
+        ans[child]=parent;
+        q.push(child);
+      }
+      
+    }
+  }
+}
+
+int main(){
+  cin>>N;
+  for(int i=0;i<N-1;i++){
+    int a,b;
+    cin>>a>>b;
+    graph[a].push_back(b);
+    graph[b].push_back(a);
+    
+  }
+  q.push(1);
+  bfs();
+  for(int i=2;i<=N;i++){
+    cout<<ans[i]<<"\n";
+  }
+}
