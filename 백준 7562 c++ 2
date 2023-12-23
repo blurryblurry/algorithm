@@ -1,0 +1,68 @@
+#include <iostream>
+#include <queue>
+#define MAX 301
+using namespace std;
+
+int arr [MAX][MAX];
+int dxy[8][2]={{1,2},{2,1},{2,-1},{1,-2},{-1,-2},{-2,-1},{-2,1},{-1,2}};
+int N,l,a,b,c,d;
+bool visit[MAX][MAX];
+queue <pair<int,int> >q;
+
+void reset(){
+  while(!q.empty()) q.pop();
+  for(int i=0;i<MAX;i++){
+    for(int j=0;j<MAX;j++){
+      arr[i][j]=0;
+      visit[i][j]=false;
+    }
+  }
+}
+
+void bfs(int x, int y){
+  q.push({x,y});
+  visit[x][y]=true;
+  while(!q.empty()){
+    int m=q.front().first;
+    int n=q.front().second;
+    q.pop();
+
+    if(m == c && n == d){
+      cout<<arr[m][n]<<"\n";
+      while(!q.empty()){
+         q.pop();
+      }
+      break;
+    }
+
+    for(int i=0;i<8;i++){
+      int mm = m+dxy[i][0];
+      int nn = n+dxy[i][1];
+      if(0<=mm && 0<=nn && nn<l && mm<l && !visit[mm][nn]){
+        q.push({mm,nn});
+        visit[mm][nn]=true;
+        arr[mm][nn] = arr[m][n]+1;
+      }
+
+
+
+    }
+  }
+}
+
+
+int main(){
+  cin>>N;
+  for(int i=0;i<N;i++){
+    cin>>l;
+    cin>>a>>b;
+    cin>>c>>d;
+
+    bfs(a, b);
+    reset();
+  }
+
+
+
+
+}
