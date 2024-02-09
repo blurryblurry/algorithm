@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int arr[10001];
+int cnt;
+int BubbleSort(int arr[],int N,int K)
+{
+  for(int last=N-1;last>0;last--){
+    for(int i=0;i<last;i++){
+      if(arr[i]>arr[i+1]){
+        swap(arr[i], arr[i+1]);
+        cnt++;
+        if(cnt == K) cout<<arr[i]<<" "<<arr[i+1];
+      }
+      
+      
+    }
+  }
+  return cnt;
+}
+
+
+int main()
+{
+  int N,K;
+  cin>>N>>K;
+
+  for(int i=0;i<N;i++)
+    {
+      cin>>arr[i];
+    }
+  
+  if(BubbleSort(arr,N,K)<K) cout<<-1;
+
+  return 0;
+}
